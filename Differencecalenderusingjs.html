@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>SElECT THE DATE</h3>
+
+<input type="date" id="startDate" value="yyyy-mm-dd">
+<p>TO</p>
+<input type="date" id="endDate" value="yyyy-mm-dd">
+<h3>Click Here To See The Date....</h3>
+<button onclick="myFunction()">Try it</button>
+<div>Timestamp:- <span id='date_value_timestamp'></span></div>
+<div>Timestamp:- <span id='date_value_timestamp1'></span></div>
+<h1 id="demo1"></h1>
+<h1 id="demo2"></h1>
+<h1 id="demo3"></h1>
+<h1 id="demo4"></h1>
+<h1 id="demo5"></h1>
+
+<!-- <h1 id="demo4"></h1> -->
+
+
+<script>
+function myFunction() {
+  var x =document.getElementById("startDate").value;
+  var y = document.getElementById("endDate").value;
+  document.getElementById("demo1").innerHTML = x;
+  document.getElementById("demo2").innerHTML = y;
+//   var n =x.getDate();
+//   document.getElementById("demo3").innerHTML = n;
+var dateConvertedToTimestamp = (+new Date(document.getElementById('startDate').value));
+  
+  document.getElementById('date_value_timestamp').innerHTML  = dateConvertedToTimestamp ;
+  var dateConvertedToTimestamp1 = (+new Date(document.getElementById('endDate').value));
+  
+  document.getElementById('date_value_timestamp1').innerHTML  = dateConvertedToTimestamp1 ;
+
+
+  var difference = (dateConvertedToTimestamp1 - dateConvertedToTimestamp);
+  var daysDifference1 = Math.floor(difference/1000/60/60/24);
+  var daysDifference2 = Math.floor(difference/1000/60/60/24/30);
+    var daysDifference3 = Math.floor(difference/1000/60/60/24/365);
+
+    // var daysDifference = Math.floor(difference/31556926);
+
+    document.getElementById('demo4').innerHTML  = " NUMBER OF DAYS:" +daysDifference1;
+    document.getElementById('demo3').innerHTML  = " NUMBER OF MONTHS:" +daysDifference2 ;
+    document.getElementById('demo5').innerHTML  = " NUMBER OF YEARS:" +daysDifference3 ;
+
+
+
+}
+</script>
+
+</body>
+</html>
